@@ -1,6 +1,6 @@
 import { Store } from 'flummox';
 
-export default class AppStore extends Store {
+export default class ReviewStore extends Store {
 
   constructor() {
 
