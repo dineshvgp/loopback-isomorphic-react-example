@@ -1,4 +1,4 @@
-const Promise = require('bluebird');
+import Promise from 'bluebird';
 
 const getJSON = function(url) {
   const promise = Promise.defer( function(resolve, reject) {
