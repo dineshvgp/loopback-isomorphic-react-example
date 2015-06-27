@@ -1,15 +1,21 @@
+import { Actions } from 'flummox';
 import AppActions from 'actions/AppActions';
 
-export function findActiveRoute(routeArray) {
-  const length = routeArray.length;
-  return routeArray[length - 1].name;
-}
+export default class RouteActions extends Actions {
 
-export function triggerRouteChange(routeName, params) {
-  switch (routeName) {
-    case 'article':
-      return AppActions.fetchArticle(params.id);
-    default:
-      return AppActions.fetchArticleList();
+  findActiveRoute(routeArray) {
+    console.log('findActiveRoute');
+    const length = routeArray.length;
+    return routeArray[length - 1].name;
+  }
+
+  triggerRouteChange(routeName, params) {
+    switch (routeName) {
+      case 'article':
+        return AppActions.fetchArticle(params.id);
+      default:
+        console.log('default')
+        return '' //AppActions.fetchArticleList();
+    }
   }
 }

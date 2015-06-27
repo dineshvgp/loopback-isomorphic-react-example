@@ -2,8 +2,7 @@ import React from 'react';
 import Router from 'react-router';
 import routes from 'routes';
 import FluxComponent from 'flummox/component';
-import Flux from 'common/Flux';
-import RouteActions from 'actions/RouteActions';
+import Flux from 'shared/Flux';
 
 const flux = new Flux();
 
@@ -14,7 +13,8 @@ Router.run(routes, Router.HistoryLocation, function (Handler, state) {
     </FluxComponent>
   , document.getElementById('root'));
 
-  const activeRoute = RouteActions.findActiveRoute(state.routes);
+  const actions = flux.getActions('RouteActions');
+  const activeRoute = actions.findActiveRoute(state.routes);
 
-  RouteActions.triggerRouteChange(activeRoute, state.params);
+  actions.triggerRouteChange(activeRoute, state.params);
 });
