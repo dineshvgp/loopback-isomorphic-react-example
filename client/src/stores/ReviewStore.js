@@ -2,15 +2,25 @@ import { Store } from 'flummox';
 
 export default class ReviewStore extends Store {
 
-  constructor() {
+  constructor(flux) {
+    super();
+
+    const reviewActions = flux.getActions('ReviewActions');
+
+    this.register(reviewActions.add, this.handleAdd);
+    this.register(reviewActions.edit, this.handleEdit);
+    this.register(reviewActions.remove, this.handleRemove);
+  }
+
+  handleAdd() {
 
   }
 
-  onLogin() {
+  handleEdit() {
 
   }
 
-  onLogout() {
+  handleRemove() {
 
   }
 
