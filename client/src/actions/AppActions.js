@@ -2,16 +2,12 @@ import { Actions } from 'flummox';
 
 export default class AppActions extends Actions {
 
-  constructor() {
-
-  }
-
   login() {
-
+    console.log('login');
   }
 
   logout() {
-
+    console.log('logout');
   }
 
 }
