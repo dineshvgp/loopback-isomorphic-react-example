@@ -4,7 +4,6 @@ import AppActions from 'actions/AppActions';
 export default class RouteActions extends Actions {
 
   findActiveRoute(routeArray) {
-    console.log('findActiveRoute');
     const length = routeArray.length;
     return routeArray[length - 1].name;
   }

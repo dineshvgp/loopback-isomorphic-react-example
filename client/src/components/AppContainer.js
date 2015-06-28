@@ -6,9 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <header>
-          <Nav />
-        </header>
+        <Nav />
         <div className='container'>
           <RouteHandler />
         </div>
