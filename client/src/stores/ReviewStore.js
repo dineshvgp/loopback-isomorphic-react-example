@@ -13,15 +13,15 @@ export default class ReviewStore extends Store {
   }
 
   handleAdd() {
-
+    console.log('handle add');
   }
 
   handleEdit() {
-
+    console.log('handle edit');
   }
 
-  HandleRemove() {
-
+  handleRemove() {
+    console.log('handle remove');
   }
 
 }

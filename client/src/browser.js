@@ -5,7 +5,7 @@ import FluxComponent from 'flummox/component';
 import Flux from 'shared/Flux';
 
 const flux = new Flux();
-const actions = flux.getActions('RouteActions');
+const actions = flux.getActions('routeActions');
 
 Router.run(routes, Router.HashLocation, function (Handler, state) {
   React.render(

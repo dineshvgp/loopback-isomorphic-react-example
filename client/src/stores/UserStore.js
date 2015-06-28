@@ -5,7 +5,7 @@ export default class UserStore extends Store {
   constructor(flux) {
     super();
 
-    const userActions = flux.getActions('UserActions');
+    const userActions = flux.getActions('userActions');
 
     this.register(userActions.add, this.handleAdd);
     this.register(userActions.edit, this.handleEdit);
@@ -13,15 +13,15 @@ export default class UserStore extends Store {
   }
 
   handleAdd() {
-
+    console.log('handle add');
   }
 
   handleEdit() {
-
+    console.log('handle edit');
   }
 
   handleRemove() {
-
+    console.log('handle remove');
   }
 
 }

@@ -1,6 +1,6 @@
 import { Actions } from 'flummox';
 
-export default class UserActions extends Actions {
+export default class ReviewActions extends Actions {
 
   add() {
     return null;
