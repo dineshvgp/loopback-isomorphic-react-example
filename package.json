@@ -4,7 +4,7 @@
   "main": "server/server.js",
   "scripts": {
     "pretest": "jshint .",
-    "start": "./node_modules/.bin/nodemon .",
+    "start": "node webpack.dev.server.js & ./node_modules/.bin/nodemon . --ignore client",
     "client": "node webpack.dev.server.js"
   },
   "dependencies": {
@@ -36,12 +36,14 @@
     "eslint": "^0.24.0",
     "eslint-plugin-react": "^2.3.0",
     "extract-text-webpack-plugin": "^0.8.2",
+    "http-proxy": "^1.11.1",
     "jshint": "^2.5.6",
     "postcss-loader": "^0.5.1",
     "react-hot-loader": "^1.2.7",
     "react-router": "^0.13.3",
     "style-loader": "^0.12.3",
     "webpack": "^1.9.6",
+    "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.8.2"
   },
   "repository": {

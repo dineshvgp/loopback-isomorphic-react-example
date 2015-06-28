@@ -1,7 +1,9 @@
-var loopback = require('loopback');
-var boot = require('loopback-boot');
+const loopback = require('loopback');
+const boot = require('loopback-boot');
 
-var app = module.exports = loopback();
+const app = module.exports = loopback();
+const isProduction = process.env.NODE_ENV === 'production';
+const port = isProduction ? process.env.PORT : 3000;
 
 app.start = function() {
   return app.listen(function() {
