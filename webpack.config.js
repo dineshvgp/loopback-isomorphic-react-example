@@ -14,8 +14,8 @@ module.exports = {
     publicPath: '/client/public/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
+    // new webpack.NoErrorsPlugin()
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],

@@ -11,8 +11,10 @@ export default class RouteActions extends Actions {
 
   triggerRouteChange(routeName, params) {
     switch (routeName) {
-      case 'article':
-        return AppActions.fetchArticle(params.id);
+      case 'test':
+        console.log('test')
+        break;
+        // return AppActions.fetchArticle(params.id);
       default:
         console.log('default')
         return '' //AppActions.fetchArticleList();

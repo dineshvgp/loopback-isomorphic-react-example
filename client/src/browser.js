@@ -5,16 +5,17 @@ import FluxComponent from 'flummox/component';
 import Flux from 'shared/Flux';
 
 const flux = new Flux();
+const actions = flux.getActions('RouteActions');
 
-Router.run(routes, Router.HistoryLocation, function (Handler, state) {
+Router.run(routes, Router.HashLocation, function (Handler, state) {
   React.render(
     <FluxComponent flux={flux}>
       <Handler />
     </FluxComponent>
-  , document.getElementById('root'));
+    , document.getElementById('root')
+  );
 
-  const actions = flux.getActions('RouteActions');
-  const activeRoute = actions.findActiveRoute(state.routes);
-
-  actions.triggerRouteChange(activeRoute, state.params);
+  // const activeRoute = actions.findActiveRoute(state.routes);
+  //
+  // actions.triggerRouteChange(activeRoute, state.params);
 });
