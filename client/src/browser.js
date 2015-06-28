@@ -15,7 +15,7 @@ Router.run(routes, Router.HashLocation, function (Handler, state) {
     , document.getElementById('root')
   );
 
-  // const activeRoute = actions.findActiveRoute(state.routes);
-  //
-  // actions.triggerRouteChange(activeRoute, state.params);
+  const activeRoute = actions.findActiveRoute(state.routes);
+
+  actions.triggerRouteChange(activeRoute, state.params);
 });
