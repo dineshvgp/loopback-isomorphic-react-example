@@ -1,10 +1,10 @@
 import React from 'react';
 import Router from 'react-router';
-import routes from 'routes';
 import FluxComponent from 'flummox/component';
-import Flux from 'shared/Flux';
+import FluxManager from 'common/FluxManager';
+import routes from 'common/routes';
 
-const flux = new Flux();
+const flux = new FluxManager();
 const actions = flux.getActions('routeActions');
 
 Router.run(routes, Router.HashLocation, function (Handler, state) {

@@ -1,6 +1,5 @@
 import { Actions } from 'flummox';
 import { CoffeeShopApi } from 'utils/api';
-console.log(CoffeeShopApi)
 
 export default class CoffeeShopActions extends Actions {
 

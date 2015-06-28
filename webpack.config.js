@@ -8,7 +8,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',
-    './client/src/browser.js'
+    './src/client/browser.js'
   ],
 
   output: {
@@ -19,10 +19,11 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    modulesDirectories: [
-      'node_modules',
-      'common',
-      'client/src'
+    root: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(__dirname, 'src/common'),
+      path.resolve(__dirname, 'src/client')
     ]
   },
 
@@ -30,7 +31,10 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loaders: ['react-hot', 'babel?stage=0'],
-      include: path.join(__dirname, 'client/src')
+      include: [
+        path.join(__dirname, 'src/client'),
+        path.join(__dirname, 'src/common')
+      ]
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')

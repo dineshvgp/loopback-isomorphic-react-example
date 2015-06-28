@@ -1,4 +1,4 @@
-import Flummox from 'flummox';
+import Flummox, { Flux } from 'flummox';
 import RouteActions from 'actions/RouteActions';
 import AppActions from 'actions/AppActions';
 import CoffeeShopActions from 'actions/CoffeeShopActions';
@@ -7,7 +7,7 @@ import AppStore from 'stores/AppStore';
 import CoffeeShopStore from 'stores/CoffeeShopStore';
 import ReviewStore from 'stores/ReviewStore';
 
-export default class Flux extends Flummox {
+export default class FluxManager extends Flummox {
   constructor() {
     super();
 
