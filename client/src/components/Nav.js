@@ -6,8 +6,8 @@ export default class Nav {
     return (
       <ul>
         <li>
-          <a href='#users'>
-            Usersss
+          <a href='#coffeeshops'>
+            CoffeeShops
           </a>
         </li>
         <li>

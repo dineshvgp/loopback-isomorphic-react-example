@@ -19,7 +19,7 @@
       "limit": "100kb"
     },
     "cors": {
-      "origin": "*"
+      "origin": "http://localhost:3001"
     },
     "errorHandler": {
       "disableStackTrace": false

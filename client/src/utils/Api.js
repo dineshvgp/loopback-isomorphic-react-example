@@ -1,23 +1,25 @@
 import api from 'axios';
 
-export const User = {
+export const CoffeeShopApi = {
+
   create() {
-    api.post(`/api/users`);
+    return api.post(`/api/coffeeshops`);
   },
 
   findById(id) {
-    api.get(`/api/users/${id}`);
+    return api.get(`/api/coffeeshop/${id}`);
   },
 
   find() {
-    api.get(`/api/users`);
+    return api.get(`/api/coffeeshops`);
   },
 
   findOne() {
-    api.get(`/api/users/findOne`);
+    return api.get(`/api/coffeeshops/findOne`);
   },
 
   deleteById(id) {
-    api.delete(`/api/users/delete/${id}`);
+    return api.delete(`/api/coffeeshop/delete/${id}`);
   }
+
 };

@@ -1,19 +1,24 @@
 import { Store } from 'flummox';
 
-export default class ReviewStore extends Store {
+export default class CoffeeShopStore extends Store {
 
   constructor(flux) {
     super();
 
-    const actions = flux.getActions('reviewActions');
+    const actions = flux.getActions('coffeeShopActions');
 
     this.register(actions.add, this.handleAdd);
+    this.register(actions.find, this.handleFind);
     this.register(actions.edit, this.handleEdit);
     this.register(actions.remove, this.handleRemove);
   }
 
-  handleAdd() {
-    console.log('handle add');
+  handleAdd(response) {
+    console.log(response);
+  }
+
+  handleFind(response) {
+    console.log(response);
   }
 
   handleEdit() {

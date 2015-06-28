@@ -5,10 +5,10 @@ export default class AppStore extends Store {
   constructor(flux) {
     super();
 
-    const appActions = flux.getActions('appActions');
+    const actions = flux.getActions('appActions');
 
-    this.register(appActions.login, this.handleLogin);
-    this.register(appActions.logout, this.handleLogout);
+    this.register(actions.login, this.handleLogin);
+    this.register(actions.logout, this.handleLogout);
   }
 
   handleLogin() {

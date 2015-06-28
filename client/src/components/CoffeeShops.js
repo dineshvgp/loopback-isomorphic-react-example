@@ -1,33 +1,33 @@
 import React, { PropTypes } from 'react';
 
-export default class Users {
+export default class CoffeeShops {
 
   static contextTypes = {
     flux: PropTypes.object.isRequired
   }
 
   componentDidMount() {
-    this.actions = this.context.flux.getActions('userActions');
+    this.actions = this.context.flux.getActions('coffeeShopActions');
   }
 
   render() {
     return (
       <section>
-        <button onClick={::this.handleLoadUsers}>
+        <button onClick={::this.handleLoadCoffeeShops}>
           Load Users
         </button>
-        <button onClick={::this.handleAddUser}>
+        <button onClick={::this.handleAddCoffeeShop}>
           Add User
         </button>
       </section>
     );
   }
 
-  handleLoadUsers() {
-
+  handleLoadCoffeeShops() {
+    this.actions.find();
   }
 
-  handleAddUser() {
+  handleAddCoffeeShop() {
 
   }
 }

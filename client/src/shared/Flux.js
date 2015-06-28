@@ -1,10 +1,10 @@
 import Flummox from 'flummox';
 import RouteActions from 'actions/RouteActions';
 import AppActions from 'actions/AppActions';
-import UserActions from 'actions/UserActions';
+import CoffeeShopActions from 'actions/CoffeeShopActions';
 import ReviewActions from 'actions/ReviewActions';
 import AppStore from 'stores/AppStore';
-import UserStore from 'stores/UserStore';
+import CoffeeShopStore from 'stores/CoffeeShopStore';
 import ReviewStore from 'stores/ReviewStore';
 
 export default class Flux extends Flummox {
@@ -13,10 +13,10 @@ export default class Flux extends Flummox {
 
     this.createActions('routeActions', RouteActions);
     this.createActions('appActions', AppActions);
-    this.createActions('userActions', UserActions);
+    this.createActions('coffeeShopActions', CoffeeShopActions);
     this.createActions('reviewActions', ReviewActions);
     this.createStore('appStore', AppStore, this);
-    this.createStore('userStore', UserStore, this);
+    this.createStore('userStore', CoffeeShopStore, this);
     this.createStore('reviewStore', ReviewStore, this);
   }
 }
