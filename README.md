@@ -4,3 +4,4 @@ ES6 (server / client) + Hot Reload Enabled + Loopback for API + Isomorphic + Loc
 - create a **postgres** database named 'loopback-demo'
 - npm install
 - npm start
+- navigate to `http://localhost:3001` (proxy to webpack dev server)
