@@ -21,22 +21,12 @@ export default function routes(app) {
         const { date, rating, comments, id } = model;
 
         const html = React.renderToString(
-          <Handler bootstrap={{
-            date,
-            rating,
-            comments,
-            id
-          }}/>
+          <Handler bootstrap={{...model.__data}} />
         );
 
         res.render('index', {
           markup: html,
-          bootstrap: JSON.stringify({
-            id,
-            date,
-            rating,
-            comments,
-          })
+          bootstrap: JSON.stringify(model)
         });
       });
 
