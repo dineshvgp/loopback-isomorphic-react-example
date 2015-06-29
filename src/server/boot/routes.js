@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from 'react-router';
+import Router, { Location } from 'react-router';
 import httpProxy from 'http-proxy';
 import reactRoutes from 'common/react/routes';
 
@@ -11,9 +11,14 @@ const proxy = httpProxy.createProxyServer({
 export default function routes(app) {
 
   app.get('/*', function (req, res) {
-    const location = req.path;
+    // const location = req.path;
 
-    Router.run(reactRoutes, location, function (Handler) {
+    const router = Router.create({
+      location: req.url,
+      routes: reactRoutes
+    });
+
+    router.run(function (Handler) {
       const { Review } = app.models;
 
       // Example of how to retrieve a model
