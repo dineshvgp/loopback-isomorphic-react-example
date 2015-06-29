@@ -12,7 +12,7 @@ export default class App extends Component {
       <div>
         <Nav />
         <div className='container'>
-          <RouteHandler />
+          <RouteHandler {...this.props.bootstrap} />
         </div>
       </div>
     );

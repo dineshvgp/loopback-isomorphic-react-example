@@ -6,11 +6,12 @@ import routes from 'common/react/routes';
 
 const flux = new FluxManager();
 const actions = flux.getActions('routeActions');
+const bootstrap = window.__BOOTSTRAP__ || {};
 
 Router.run(routes, Router.HistoryLocation, function (Handler, state) {
   React.render(
     <FluxComponent flux={flux}>
-      <Handler />
+      <Handler bootstrap={bootstrap} />
     </FluxComponent>
     , document.getElementById('root')
   );

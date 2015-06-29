@@ -14,18 +14,28 @@ export default function routes(app) {
     const location = req.path;
 
     Router.run(reactRoutes, location, function (Handler) {
-      const html = React.renderToString(
-        <Handler />
-      );
-
-      const Review = app.models.Review;
+      const { Review } = app.models;
 
       // Example of how to retrieve a model
       Review.findById(1).then(function(model) {
+        const { date, rating, comments, id } = model;
+
+        const html = React.renderToString(
+          <Handler bootstrap={{
+            date,
+            rating,
+            comments,
+            id
+          }}/>
+        );
+
         res.render('index', {
           markup: html,
           bootstrap: JSON.stringify({
-            comments: model.comments
+            id,
+            date,
+            rating,
+            comments,
           })
         });
       });
