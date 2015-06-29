@@ -1,5 +1,5 @@
 import React from 'react';
-import Router, { Location } from 'react-router';
+import Router from 'react-router';
 import httpProxy from 'http-proxy';
 import reactRoutes from 'common/react/routes';
 
@@ -11,8 +11,6 @@ const proxy = httpProxy.createProxyServer({
 export default function routes(app) {
 
   app.get('/*', function (req, res) {
-    // const location = req.path;
-
     const router = Router.create({
       location: req.url,
       routes: reactRoutes
