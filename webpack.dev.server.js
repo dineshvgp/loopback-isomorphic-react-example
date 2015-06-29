@@ -1,16 +1,19 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.config');
 
-new WebpackDevServer(webpack(config), {
+const server = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   cache: true,
+  colors: true,
   hot: true,
   historyApiFallback: true,
   proxy: {
     '*': "http://localhost:3000"
   }
-}).listen(3001, 'localhost', function (err, result) {
+});
+
+server.listen(3001, 'localhost', function (err) {
   if (err) {
     console.log(err);
   }

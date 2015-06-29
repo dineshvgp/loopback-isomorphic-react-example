@@ -36,7 +36,7 @@ export default function routes(app) {
   // Webpack related assets
   app.all('/build/*', function (req, res) {
     proxy.web(req, res, {
-        target: 'http://127.0.0.1:3001'
+      target: 'http://127.0.0.1:3001'
     });
   });
 
