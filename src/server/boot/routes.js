@@ -2,18 +2,16 @@ const React = require('react');
 const httpProxy = require('http-proxy');
 const Test = require('client/components/Test.js');
 
-//console.log(React.renderToString(<Test />));
-
 const proxy = httpProxy.createProxyServer({
   changeOrigin: true,
   ws: true
 });
 
-module.exports = function (app) {
+export default function routes(app) {
 
   app.get('/*', function (req, res) {
     res.render('index', {
-      initialMarkup: '<div>TESTING THIS</div>',
+      initialMarkup: React.renderToString(<Test />),
       bootstrap: JSON.stringify({
         testing: 'this'
       })
@@ -41,8 +39,7 @@ module.exports = function (app) {
     });
   });
 
-  proxy.on('error', function(e) {
+  proxy.on('error', function(error) {
     // Just catch it
   });
-
-};
+}

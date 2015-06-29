@@ -1,29 +1,7 @@
-const Bluebird = require('bluebird');
+import Bluebird from 'bluebird';
 
-module.exports = function(app) {
-
+export default function(app) {
   const mydb = app.dataSources.mydb;
-
-  Bluebird.props({
-    reviewers: createReviewers(),
-    coffeeShops: createCoffeeShops()
-  })
-  .then(createReviews).then(function (result) {
-    console.log(result)
-
-    const Review = app.models.Review;
-
-    // Example of how to retrieve a model
-    Review.findById(1).then(function(model) {
-      console.log(model)
-    });
-
-    return result;
-  })
-
-  .catch( function (error) {
-    if (error) throw error;
-  });
 
   function createReviewers() {
     return mydb.automigrate('Reviewer')
@@ -92,4 +70,25 @@ module.exports = function(app) {
         ]);
       });
   }
+
+  Bluebird.props({
+    reviewers: createReviewers(),
+    coffeeShops: createCoffeeShops()
+  })
+  .then(createReviews).then(function (result) {
+    const Review = app.models.Review;
+
+    // Example of how to retrieve a model
+    Review.findById(1).then(function(model) {
+      console.log(model);
+    });
+
+    return result;
+  })
+  .catch( function (error) {
+    if (error) {
+      throw error;
+    }
+  });
+
 }

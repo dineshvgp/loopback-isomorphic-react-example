@@ -1,4 +1,4 @@
-import Flummox, { Flux } from 'flummox';
+import Flummox from 'flummox';
 import RouteActions from 'actions/RouteActions';
 import AppActions from 'actions/AppActions';
 import CoffeeShopActions from 'actions/CoffeeShopActions';

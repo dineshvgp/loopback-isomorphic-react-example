@@ -1,13 +1,3 @@
-var Promise = require('bluebird');
+export default function reviewer(Reviewer) {
 
-module.exports = function(Reviewer) {
-
-  // Reviewer.on('dataSourceAttached', function (obj) {
-  //   Reviewer = Promise.promisifyAll(Reviewer, {
-  //     filter: function (name, func, target) {
-  //       return !(name ==='validate');
-  //     }
-  //   });
-  // });
-
-};
+}
