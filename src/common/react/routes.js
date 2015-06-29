@@ -3,8 +3,6 @@ import Router from 'react-router';
 import AppContainer from 'components/AppContainer';
 import CoffeeShops from 'components/CoffeeShops';
 import Reviews from 'components/Reviews';
-import Test from 'components/Test';
-import Test2 from 'components/Test2';
 
 const { DefaultRoute, Route } = Router;
 

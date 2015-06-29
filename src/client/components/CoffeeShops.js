@@ -14,7 +14,7 @@ export default class CoffeeShops {
     return (
       <section>
         <button onClick={::this.handleLoadCoffeeShops}>
-          Load Users
+          Load Userssssssssss
         </button>
         <button onClick={::this.handleAddCoffeeShop}>
           Add User

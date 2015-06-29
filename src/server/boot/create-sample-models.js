@@ -80,7 +80,7 @@ export default function(app) {
 
     // Example of how to retrieve a model
     Review.findById(1).then(function(model) {
-      console.log(model);
+      // console.log(model);
     });
 
     return result;

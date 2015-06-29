@@ -2,8 +2,6 @@ import React from 'react';
 import Router from 'react-router';
 import httpProxy from 'http-proxy';
 import reactRoutes from 'common/react/routes';
-import Test from 'client/components/Test';
-import Test2 from 'client/components/Test2';
 
 const proxy = httpProxy.createProxyServer({
   changeOrigin: true,
@@ -20,30 +18,18 @@ export default function routes(app) {
         <Handler />
       );
 
-      res.render('index', {
-        markup: html,
-        bootstrap: JSON.stringify({
-          testing: 'this'
-        })
+      const Review = app.models.Review;
+
+      // Example of how to retrieve a model
+      Review.findById(1).then(function(model) {
+        res.render('index', {
+          markup: html,
+          bootstrap: JSON.stringify({
+            comments: model.comments
+          })
+        });
       });
-    });
-  });
 
-  app.get('/test', function (req, res) {
-    res.render('index', {
-      markup: React.renderToString(<Test />),
-      bootstrap: JSON.stringify({
-        testing: 'this'
-      })
-    });
-  });
-
-  app.get('/test2', function (req, res) {
-    res.render('index', {
-      markup: React.renderToString(<Test2 />),
-      bootstrap: JSON.stringify({
-        testing: 'this'
-      })
     });
   });
 
