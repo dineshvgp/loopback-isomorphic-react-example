@@ -1,13 +1,13 @@
 import React from 'react';
 import Router from 'react-router';
 import FluxComponent from 'flummox/component';
-import FluxManager from 'common/FluxManager';
-import routes from 'common/routes';
+import FluxManager from 'common/react/FluxManager';
+import routes from 'common/react/routes';
 
 const flux = new FluxManager();
 const actions = flux.getActions('routeActions');
 
-Router.run(routes, Router.HashLocation, function (Handler, state) {
+Router.run(routes, Router.HistoryLocation, function (Handler, state) {
   React.render(
     <FluxComponent flux={flux}>
       <Handler />

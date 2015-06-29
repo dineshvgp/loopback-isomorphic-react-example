@@ -1,9 +1,16 @@
 const loopback = require('loopback');
 const boot = require('loopback-boot');
+const consolidate = require('consolidate');
+const path = require('path');
+require('babel/register');
 
 const app = module.exports = loopback();
 // const isProduction = process.env.NODE_ENV === 'production';
 // const port = isProduction ? process.env.PORT : 3000;
+
+app.engine('html', consolidate.handlebars);
+app.set('view engine', 'html');
+app.set('views', 'public/views');
 
 app.start = function() {
   return app.listen(function() {

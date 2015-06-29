@@ -1,15 +1,40 @@
+const React = require('react');
 const httpProxy = require('http-proxy');
+const Test = require('client/components/Test.js');
+
+//console.log(React.renderToString(<Test />));
+
 const proxy = httpProxy.createProxyServer({
   changeOrigin: true,
   ws: true
 });
 
 module.exports = function (app) {
+
+  app.get('/*', function (req, res) {
+    res.render('index', {
+      initialMarkup: '<div>TESTING THIS</div>',
+      bootstrap: JSON.stringify({
+        testing: 'this'
+      })
+    });
+  });
+
+  app.get('/coffeeshops', function (req, res) {
+    res.render('index', {
+      test: 'does this work??'
+    });
+  });
+
+
+  // Webpack related assets
   app.all('/build/*', function (req, res) {
     proxy.web(req, res, {
         target: 'http://127.0.0.1:3001'
     });
   });
+
+  // Webpack HMR config
   app.all('/socket.io*', function (req, res) {
     proxy.web(req, res, {
       target: 'http://127.0.0.1:3001'
@@ -20,7 +45,4 @@ module.exports = function (app) {
     // Just catch it
   });
 
-  app.get('/ping', function (req, res) {
-    res.send('pong');
-  });
-}
+};

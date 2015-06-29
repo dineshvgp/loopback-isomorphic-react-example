@@ -1,17 +1,17 @@
 import React from 'react';
-import 'components/Nav.css';
+// import 'components/Nav.css';
 
 export default class Nav {
   render() {
     return (
       <ul>
         <li>
-          <a href='#coffeeshops'>
+          <a href='/coffeeshops'>
             CoffeeShops
           </a>
         </li>
         <li>
-          <a href='#reviews'>
+          <a href='/reviews'>
             Reviews
           </a>
         </li>
