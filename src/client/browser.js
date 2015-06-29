@@ -9,9 +9,7 @@ const actions = flux.getActions('routeActions');
 
 Router.run(routes, Router.HistoryLocation, function (Handler, state) {
   React.render(
-    <FluxComponent flux={flux}>
       <Handler />
-    </FluxComponent>
     , document.getElementById('root')
   );
 

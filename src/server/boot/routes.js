@@ -1,6 +1,7 @@
 const React = require('react');
 const httpProxy = require('http-proxy');
 const Test = require('client/components/Test.js');
+const Test2 = require('client/components/Test2.js');
 
 const proxy = httpProxy.createProxyServer({
   changeOrigin: true,
@@ -9,9 +10,26 @@ const proxy = httpProxy.createProxyServer({
 
 export default function routes(app) {
 
-  app.get('/*', function (req, res) {
+  app.get('/', function (req, res) {
+    res.render('index', {
+      bootstrap: JSON.stringify({
+        testing: 'this'
+      })
+    });
+  });
+
+  app.get('/test', function (req, res) {
     res.render('index', {
       initialMarkup: React.renderToString(<Test />),
+      bootstrap: JSON.stringify({
+        testing: 'this'
+      })
+    });
+  });
+
+  app.get('/test2', function (req, res) {
+    res.render('index', {
+      initialMarkup: React.renderToString(<Test2 />),
       bootstrap: JSON.stringify({
         testing: 'this'
       })

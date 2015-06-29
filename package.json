@@ -5,8 +5,7 @@
   "scripts": {
     "prestart": "link-package",
     "pretest": "link-package",
-    "start": "node webpack.dev.server.js & ./node_modules/.bin/nodemon . --ignore src/client",
-    "client": "node webpack.dev.server.js"
+    "start": "node webpack.dev.server.js & ./node_modules/.bin/nodemon ."
   },
   "dependencies": {
     "async": "^1.2.1",

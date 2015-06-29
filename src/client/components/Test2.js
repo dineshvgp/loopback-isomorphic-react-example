@@ -1,11 +1,6 @@
 import React from 'react';
 
-export default class Test {
-
-  propTypes: {
-    title: React.PropTypes.string
-  }
-
+export default class Test2 {
   render() {
     const { title } = this.props;
 
@@ -15,8 +10,8 @@ export default class Test {
           {title}
         </h1>
 
-        <a href='test2'>
-          go to test 2
+        <a href='test'>
+          go to test 1
         </a>
       </div>
     );
