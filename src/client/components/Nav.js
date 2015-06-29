@@ -1,5 +1,8 @@
 import React from 'react';
-import 'components/Nav.css';
+
+if (typeof window !== 'undefined') {
+  require('components/Nav.css');
+}
 
 export default class Nav {
   render() {

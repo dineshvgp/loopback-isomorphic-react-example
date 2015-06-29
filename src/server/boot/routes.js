@@ -1,7 +1,9 @@
-const React = require('react');
-const httpProxy = require('http-proxy');
-const Test = require('client/components/Test.js');
-const Test2 = require('client/components/Test2.js');
+import React from 'react';
+import Router from 'react-router';
+import httpProxy from 'http-proxy';
+import reactRoutes from 'common/react/routes';
+import Test from 'client/components/Test';
+import Test2 from 'client/components/Test2';
 
 const proxy = httpProxy.createProxyServer({
   changeOrigin: true,
@@ -10,17 +12,26 @@ const proxy = httpProxy.createProxyServer({
 
 export default function routes(app) {
 
-  app.get('/', function (req, res) {
-    res.render('index', {
-      bootstrap: JSON.stringify({
-        testing: 'this'
-      })
+  app.get('/*', function (req, res) {
+    const location = req.path;
+
+    Router.run(reactRoutes, location, function (Handler) {
+      const html = React.renderToString(
+        <Handler />
+      );
+
+      res.render('index', {
+        markup: html,
+        bootstrap: JSON.stringify({
+          testing: 'this'
+        })
+      });
     });
   });
 
   app.get('/test', function (req, res) {
     res.render('index', {
-      initialMarkup: React.renderToString(<Test />),
+      markup: React.renderToString(<Test />),
       bootstrap: JSON.stringify({
         testing: 'this'
       })
@@ -29,19 +40,12 @@ export default function routes(app) {
 
   app.get('/test2', function (req, res) {
     res.render('index', {
-      initialMarkup: React.renderToString(<Test2 />),
+      markup: React.renderToString(<Test2 />),
       bootstrap: JSON.stringify({
         testing: 'this'
       })
     });
   });
-
-  app.get('/coffeeshops', function (req, res) {
-    res.render('index', {
-      test: 'does this work??'
-    });
-  });
-
 
   // Webpack related assets
   app.all('/build/*', function (req, res) {
@@ -57,7 +61,7 @@ export default function routes(app) {
     });
   });
 
-  proxy.on('error', function(error) {
+  proxy.on('error', function() {
     // Just catch it
   });
 }
