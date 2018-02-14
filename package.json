@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "async": "^1.2.1",
-    "babel": "^5.6.14",
+    "babel": "^6.0.0",
     "bluebird": "^2.9.30",
     "compression": "^1.0.3",
     "consolidate": "^0.13.1",
@@ -19,7 +19,7 @@
     "handlebars": "^3.0.3",
     "link-package": "^0.1.0",
     "loopback": "^2.14.0",
-    "loopback-boot": "^2.6.5",
+    "loopback-boot": "^3.0.0",
     "loopback-connector-mysql": "^2.1.1",
     "loopback-connector-postgresql": "^2.2.0",
     "loopback-datasource-juggler": "^2.19.0",
