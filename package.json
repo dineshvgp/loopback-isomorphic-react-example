@@ -18,7 +18,7 @@
     "flummox": "^3.5.2",
     "handlebars": "^3.0.3",
     "link-package": "^0.1.0",
-    "loopback": "^2.14.0",
+    "loopback": "^3.26.0",
     "loopback-boot": "^2.6.5",
     "loopback-connector-mysql": "^2.1.1",
     "loopback-connector-postgresql": "^2.2.0",
