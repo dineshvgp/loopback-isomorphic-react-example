@@ -16,7 +16,7 @@
     "cors": "^2.5.2",
     "errorhandler": "^1.1.1",
     "flummox": "^3.5.2",
-    "handlebars": "^3.0.3",
+    "handlebars": "^4.5.2",
     "link-package": "^0.1.0",
     "loopback": "^2.14.0",
     "loopback-boot": "^2.6.5",
